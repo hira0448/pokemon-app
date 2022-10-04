@@ -7,6 +7,14 @@ const Card = ({pokemon}) => {
     <img src={pokemon.sprites.front_default} alt=""/>
   </div>
   <h3 className='cardName'>{pokemon.name}</h3>
+  <div className="cardTypes">
+    <div>タイプ</div>
+    {pokemon.types.map((type) => {
+      return <div>
+        <span className='typeName'>{type.type.name}</span>
+      </div>
+    })}
+  </div>
     </div>
   )
 }
