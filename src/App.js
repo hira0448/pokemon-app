@@ -8,6 +8,7 @@ function App() {
   const initialURl = "https://pokeapi.co/api/v2/pokemon";
   const [loading, setLoading] = useState(true);
   const [pokemonData, setPokemonData] = useState([]);
+  const [nextURL, setNextURL] = useState("");
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -15,7 +16,8 @@ function App() {
       let res = await getAllPokemon(initialURl);
       // 各ポケモンの詳細なデータを取得
       loadPokemon(res.results);
-      console.log(res);
+      setNextURL(res.next);
+      console.log(res.next);
       setLoading(false);
     };
     fetchPokemonData();
